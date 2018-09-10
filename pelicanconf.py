@@ -3,14 +3,32 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Alex Ioannides'
-SITENAME = 'Alex Ioannides'
-SITEURL = ''
+# SITEURL = 'https://alexioannides.github.io'
+SITENAME = AUTHOR
+SITETITLE = AUTHOR
+SITESUBTITLE = 'Financial mathematician and (data) scientist'
+SITEDESCRIPION = 'site description'
+BROWSER_COLOR = '#0040FF'
+PYGMENTS_STYLE = 'monokai'
 
+ROBOTS = 'index, follow'
+
+THEME = 'themes/Flex'
 PATH = 'content'
-
 TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG = 'en'
+
+MAIN_MENU = True
+USE_FOLDER_AS_CATEGORY = True
+MENUITEMS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),)
+
+SOCIAL = (('github', 'https://github.com/alexioannides'),
+          ('linkedin', 'https://www.linkedin.com/in/alexioannides/'),
+          ('twitter', 'https://twitter.com/ioannides_alex'),
+          ('soundcloud', 'https://soundcloud.com/user-616657739'))
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -20,14 +38,9 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
-
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+# LINKS = (('Pelican', 'http://getpelican.com/'),
+#          ('Python.org', 'http://python.org/'),
+#          ('Jinja2', 'http://jinja.pocoo.org/'))
 
 DEFAULT_PAGINATION = False
 

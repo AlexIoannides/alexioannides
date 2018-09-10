@@ -3,12 +3,13 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Alex Ioannides'
-# SITEURL = 'https://alexioannides.github.io'
+SITEURL = 'https://alexioannides.github.io'
 SITENAME = AUTHOR
 SITETITLE = AUTHOR
-SITESUBTITLE = 'Financial mathematician and (data) scientist'
-SITEDESCRIPION = 'site description'
-BROWSER_COLOR = '#0040FF'
+SITESUBTITLE = 'Financial engineer, (data) scientist, PhD in Computational Neuroscience/AI and habitual coder'
+SITEDESCRIPION = 'Alex Ioannides on data science: data mining, statistics, machine learning, AI, functional programming, R, Python, Scala, Spark, Elasticsearch, AWS, DevOps...'
+SITELOGO = 'images/alex_ioannides.png'
+FAVICON = 'images/favicon.ico'
 PYGMENTS_STYLE = 'monokai'
 
 ROBOTS = 'index, follow'

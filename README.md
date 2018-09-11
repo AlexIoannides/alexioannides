@@ -1,6 +1,6 @@
 # alexioannides
 
-Python source code for generating my personal website - hosted by GitHub pages at [alexioannides.github.io](http://alexioannides.github.io) - using the [Pelican](https://blog.getpelican.com/) framework for static sites.
+Python source code for generating my personal website - hosted by GitHub pages at [alexioannides.github.io](http://alexioannides.github.io) - using the [Pelican](https://blog.getpelican.com/) framework for static websites, together with [Flex theme](https://github.com/alexandrevicenzi/flex).
 
 The output of the build process is written to the `output` folder in the root directory, that is **not** version controlled using this repository. Instead, the `output` directory has its own repository at [alexioannides](https://github.com/AlexIoannides/alexioannides), that is necessary for hosting with GitHub pages.
 

@@ -1,0 +1,29 @@
+body {
+    line-height: 1.5
+}
+
+a {
+    color: #0099ff
+}
+
+a:hover {
+    color: #66c2ff
+}
+
+a.btn {
+    background-color: #0099ff
+}
+
+a.btn:hover{
+    background-color: #66c2ff;
+    color:#fff;
+}
+
+.tag-cloud a {
+    background-color: #0099ff
+}
+
+.tag-cloud a:hover {
+    background-color: #66c2ff;
+    color:#fff;
+}

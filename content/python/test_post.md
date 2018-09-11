@@ -1,7 +1,6 @@
 Title: Something Interesting
-Slug: Involving Python.
 Date: 2018-09-09
-Category: code
+Tags: test
 
 Python in a wonderful language to work with.
 

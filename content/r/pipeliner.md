@@ -1,5 +1,5 @@
 Title: Machine Learning Pipelines for R
-Date: 2017-05-17
+Date: 2017-05-08
 Tags: machine learning, data processing
 
 ![pipes][pipe_img]

@@ -24,10 +24,12 @@ SITENAME = AUTHOR
 SITETITLE = AUTHOR
 SITESUBTITLE = 'Financial engineer - (data) scientist - habitual coder'
 SITEDESCRIPION = 'Alex Ioannides on data science: data mining, statistics, machine learning, AI, functional programming, R, Python, Scala, Spark, Elasticsearch, AWS, DevOps...'
-SITELOGO = '//avatars1.githubusercontent.com/u/5968486?s=460&v=4'
-FAVICON = '/images/favicon.ico'
-PYGMENTS_STYLE = 'monokai'
-ROBOTS = 'index, follow'
+
+# to match old WordPress site
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
 
 TIMEZONE = 'Europe/London'
 DEFAULT_LANG = 'en'
@@ -43,11 +45,6 @@ MENUITEMS = (('Categories', '/categories.html'),
              ('Tags', '/tags.html'),
              ('Archives', '/archives.html'))
 
-SOCIAL = (('github', 'https://github.com/alexioannides'),
-          ('linkedin', 'https://www.linkedin.com/in/alexioannides/'),
-          ('twitter', 'https://twitter.com/ioannides_alex'),
-          ('soundcloud', 'https://soundcloud.com/user-616657739'))
-
 # Feed generation is usually not desired when developing
 FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = 'feeds/all-atom.xml'
@@ -55,7 +52,18 @@ CATEGORY_FEED_ATOM = 'feeds/%s-atom.xml'
 FEED_ALL_RSS = 'feeds/all-rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s-rss.xml'
 
-# Blogroll
+# Flex theme specific
+SITELOGO = '//avatars1.githubusercontent.com/u/5968486?s=460&v=4'
+FAVICON = '/images/favicon.ico'
+PYGMENTS_STYLE = 'monokai'
+ROBOTS = 'index, follow'
+DISABLE_URL_HASH = True
+
+SOCIAL = (('github', 'https://github.com/alexioannides'),
+          ('linkedin', 'https://www.linkedin.com/in/alexioannides/'),
+          ('twitter', 'https://twitter.com/ioannides_alex'),
+          ('soundcloud', 'https://soundcloud.com/user-616657739'))
+
 # LINKS = (('Pelican', 'http://getpelican.com/'),
 #          ('Python.org', 'http://python.org/'),
 #          ('Jinja2', 'http://jinja.pocoo.org/'))

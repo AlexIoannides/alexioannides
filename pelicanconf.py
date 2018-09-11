@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 PATH = 'content'
 STATIC_PATHS = ['images', 'extra']
@@ -18,30 +18,30 @@ EXTRA_PATH_METADATA = {
 }
 CUSTOM_CSS = 'static/custom.css'
 
-AUTHOR = 'Alex Ioannides'
+AUTHOR = 'Dr Alex Ioannides'
 SITEURL = 'https://alexioannides.github.io'
 SITENAME = AUTHOR
 SITETITLE = AUTHOR
-SITESUBTITLE = 'Financial engineer, (data) scientist, PhD in Computational Neuroscience/AI and habitual coder'
+SITESUBTITLE = 'Financial engineer - (data) scientist - habitual coder'
 SITEDESCRIPION = 'Alex Ioannides on data science: data mining, statistics, machine learning, AI, functional programming, R, Python, Scala, Spark, Elasticsearch, AWS, DevOps...'
 SITELOGO = '//avatars1.githubusercontent.com/u/5968486?s=460&v=4'
-FAVICON = 'images/favicon.ico'
+FAVICON = '/images/favicon.ico'
 PYGMENTS_STYLE = 'monokai'
 ROBOTS = 'index, follow'
 
 TIMEZONE = 'Europe/London'
 DEFAULT_LANG = 'en'
 
-DEFAULT_PAGINATION = False
+DEFAULT_PAGINATION = 15
 TYPOGRIFY = True
 
 USE_FOLDER_AS_CATEGORY = True
 DEFAULT_CATEGORY = 'misc'
 
 MAIN_MENU = True
-MENUITEMS = (('Archives', '/archives.html'),
-             ('Categories', '/categories.html'),
-             ('Tags', '/tags.html'),)
+MENUITEMS = (('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),
+             ('Archives', '/archives.html'))
 
 SOCIAL = (('github', 'https://github.com/alexioannides'),
           ('linkedin', 'https://www.linkedin.com/in/alexioannides/'),
@@ -49,13 +49,17 @@ SOCIAL = (('github', 'https://github.com/alexioannides'),
           ('soundcloud', 'https://soundcloud.com/user-616657739'))
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
+FEED_DOMAIN = SITEURL
+FEED_ALL_ATOM = 'feeds/all-atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s-atom.xml'
+FEED_ALL_RSS = 'feeds/all-rss.xml'
+CATEGORY_FEED_RSS = 'feeds/%s-rss.xml'
 
 # Blogroll
 # LINKS = (('Pelican', 'http://getpelican.com/'),
 #          ('Python.org', 'http://python.org/'),
 #          ('Jinja2', 'http://jinja.pocoo.org/'))
+
+# Flex theme integrations
+DISQUS_SITENAME = 'alexioannides'
+GOOGLE_ANALYTICS= 'UA-125604661-1'

@@ -1,8 +1,8 @@
-Title: It Recently Occurred to Me
+Title: It Recently Occurred to Me...
 Date: 2018-09-09
 Tags: musings
 
-That type annotations and `mypy` are great for data scientists as well as day-to-day developers - e.g.,
+... I should get back into writing/blogging things that come to mind. For example, that type annotations and type-checking with `mypy` are great tools for data scientists as well as day-to-day developers - e.g.,
 
 ```python
 def circle_area(radius: float) -> float:

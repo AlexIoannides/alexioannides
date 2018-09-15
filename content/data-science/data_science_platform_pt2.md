@@ -1,6 +1,6 @@
 Title: Building a Data Science Platform for R&D, Part 2 - Deploying Spark on AWS using Flintrock
 Date: 2016-08-18
-Tags: big data, AWS, data processing, spark
+Tags: AWS, data-processing, apache-spark
 
 ![Alt][16]
 

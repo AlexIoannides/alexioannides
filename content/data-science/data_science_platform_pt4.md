@@ -1,6 +1,6 @@
 Title: Building a Data Science Platform for R&D, Part 4 - Apache Zeppelin & Scala Notebooks
 Date: 2016-08-29
-Tags: big data, AWS, data processing
+Tags: AWS, data-processing
 
 ![zeppelin][zeppelin-logo]
 
@@ -214,7 +214,7 @@ I have met all of my initial aims - possibly more. I have myself a Spark-based R
 
 [partTwo]: {filename}data_science_platform_pt2.md "Part 2"
 
-[partThree]: {filename}data_science_platform_pt2.md "Part 3"
+[partThree]: {filename}data_science_platform_pt3.md "Part 3"
 
 [zeppelin-link]: http://zeppelin.apache.org "Apache Zeppelin"
 

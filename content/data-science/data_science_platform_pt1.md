@@ -1,6 +1,6 @@
 Title: Building a Data Science Platform for R&D, Part 1 - Setting-Up AWS
 Date: 2016-08-16
-Tags: big data, AWS, data processing
+Tags: AWS, data-processing
 
 ![Alt][8]
 

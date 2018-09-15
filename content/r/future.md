@@ -1,6 +1,6 @@
 Title: Asynchronous and Distributed Programming in R with the Future Package
 Date: 2016-11-02
-Tags: data processing, high-performance computing
+Tags: data-processing, high-performance-computing
 
 ![Future!][future_pic]
 

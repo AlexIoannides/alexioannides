@@ -8,3 +8,4 @@ __pycache__/
 
 # dev workspace files
 .vscode
+.DS_Store

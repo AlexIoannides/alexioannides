@@ -1,6 +1,6 @@
 Title: Building a Data Science Platform for R&D, Part 3 - R, R Studio Server, SparkR & Sparklyr
 Date: 2016-08-22
-Tags: big data, AWS, data processing, spark
+Tags: AWS, data-processing, apache-spark
 
 ![Alt][sparklyr_img]
 

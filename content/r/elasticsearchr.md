@@ -1,6 +1,6 @@
 Title: elasticsearchr - a Lightweight Elasticsearch Client for R
 Date: 2016-11-28
-Tags: data processing, big data
+Tags: data-processing, data-stores
 
 ![elasticsearchr][esr_img]
 

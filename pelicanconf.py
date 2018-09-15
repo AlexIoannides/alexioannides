@@ -47,10 +47,14 @@ MENUITEMS = (('Categories', '/categories.html'),
 
 # Feed generation is usually not desired when developing
 FEED_DOMAIN = SITEURL
-FEED_ALL_ATOM = 'feeds/all-atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s-atom.xml'
-FEED_ALL_RSS = 'feeds/all-rss.xml'
-CATEGORY_FEED_RSS = 'feeds/%s-rss.xml'
+
+FEED_ALL_ATOM = 'feed/atom/index.xml'
+CATEGORY_FEED_ATOM = 'feed/atom/category/%s/index.xml'
+TAG_FEED_ATOM = 'feed/atom/tag/%s/index.xml'
+
+FEED_ALL_RSS = 'feed/rss/index.xml'
+CATEGORY_FEED_RSS = 'feed/rss/category/%s/index.xml'
+TAG_FEED_ATOM = 'feed/rss/tag/%s/index.xml'
 
 # Flex theme specific
 SITELOGO = '//avatars1.githubusercontent.com/u/5968486?s=460&v=4'

@@ -45,16 +45,15 @@ MENUITEMS = (('Categories', '/categories.html'),
              ('Tags', '/tags.html'),
              ('Archives', '/archives.html'))
 
-# Feed generation is usually not desired when developing
+# Feeds
 FEED_DOMAIN = SITEURL
 
-FEED_ALL_ATOM = 'feed/atom/index.xml'
-CATEGORY_FEED_ATOM = 'feed/atom/category/%s/index.xml'
-TAG_FEED_ATOM = 'feed/atom/tag/%s/index.xml'
+CATEGORY_FEED_ATOM = 'feeds/category/%s/atom.xml'
+TAG_FEED_ATOM = 'feeds/tag/%s/atom.xml'
 
-FEED_ALL_RSS = 'feed/rss/index.xml'
-CATEGORY_FEED_RSS = 'feed/rss/category/%s/index.xml'
-TAG_FEED_ATOM = 'feed/rss/tag/%s/index.xml'
+CATEGORY_FEED_RSS = 'feeds/category/%s/rss.xml'
+TAG_FEED_RSS = 'feeds/tag/%s/rss.xml'
+RSS_FEED_SUMMARY_ONLY = False
 
 # Flex theme specific
 SITELOGO = '//avatars1.githubusercontent.com/u/5968486?s=460&v=4'

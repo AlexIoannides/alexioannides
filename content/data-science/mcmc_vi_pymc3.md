@@ -2,6 +2,8 @@ Title: Bayesian Regression in PYMC3 using MCMC & Variational Inference
 Date: 2018-11-07
 Tags: machine-learning, probabilistic-programming, python, pymc3
 
+![jpeg]({filename}/images/data_science/mcmc_vi_pymc3/pymc3_logo.jpg)
+
 Conducting a Bayesian data analysis - e.g. estimating a Bayesian linear regression model - will usually require some form of Probabilistic Programming Language (PPL), unless analytical approaches (e.g. based on conjugate prior models), are appropriate for the task at hand. More often than not, PPLs implement Markov Chain Monte Carlo (MCMC) algorithms that allow one to draw samples and make inferences from the posterior distribution implied by the choice of model - the likelihood and prior distributions for its parameters - conditional on the observed data.
 
 MCMC algorithms are, generally speaking, computationally expensive and do not scale very easily. For example, it is not as easy to distribute the execution of these algorithms over a cluster of machines, when compared to the optimisation algorithms used for training deep neural networks (e.g. stochastic gradient descent).
@@ -194,12 +196,6 @@ with model:
     hmc_trace = pm.sample(draws=5000, tune=1000, cores=2)
 ```
 
-    Auto-assigning NUTS sampler...
-    Initializing NUTS using jitter+adapt_diag...
-    Multiprocess sampling (2 chains in 2 jobs)
-    NUTS: [sigma, beta, alpha]
-    Sampling 2 chains: 100%|██████████| 12000/12000 [00:19<00:00, 600.35draws/s]
-
 Now let's take a look at what we can infer from the HMC samples of the posterior distribution.
 
 ```python
@@ -321,9 +317,6 @@ with model:
     advi_fit = pm.fit(method=pm.ADVI(), n=30000,
                       more_replacements=map_tensor_batch)
 ```
-
-    Average Loss = 128.62: 100%|██████████| 30000/30000 [00:25<00:00, 1190.19it/s]
-    Finished [100%]: Average Loss = 128.63
 
 Before we take a look at the parameters, let's make sure the ADVI fit has converged by plotting ELBO as a function of the number of iterations.
 
@@ -448,9 +441,6 @@ prediction_data = pd.DataFrame(
 _ = sns.lmplot(y='ADVI', x='HMC', data=prediction_data,
                line_kws={'color': 'red', 'alpha': 0.5})
 ```
-
-    100%|██████████| 1000/1000 [00:12<00:00, 81.73it/s]
-    100%|██████████| 1000/1000 [00:13<00:00, 76.49it/s]
 
 ![png]({filename}/images/data_science/mcmc_vi_pymc3/output_34_1.png)
 

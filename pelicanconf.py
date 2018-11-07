@@ -8,6 +8,9 @@ from __future__ import unicode_literals
 PATH = 'content'
 STATIC_PATHS = ['images', 'extra']
 
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['render_math']
+
 OUTPUT_PATH = 'output/'
 DELETE_OUTPUT_DIRECTORY = True
 OUTPUT_RETENTION = ['.git', 'README.md', 'CNAME']

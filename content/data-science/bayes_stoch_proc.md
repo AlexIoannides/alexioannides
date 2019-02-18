@@ -1,5 +1,5 @@
 Title: Stochastic Process Calibration using Bayesian Inference & Probabilistic Programs
-Date: 2019-1-18
+Date: 2019-02-18
 Tags: probabilistic-programming, python, pymc3, quant-finance, stochastic-processes
 
 ![jpeg]({filename}/images/data_science/bayes_stoch_proc/trading_screen.jpg)

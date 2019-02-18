@@ -12,4 +12,5 @@ __pycache__/
 # dev workspace files
 .idea
 .vscode
+/.DS_Store
 .DS_Store

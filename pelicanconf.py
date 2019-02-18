@@ -25,7 +25,7 @@ AUTHOR = 'Dr Alex Ioannides'
 SITEURL = 'https://alexioannides.github.io'
 SITENAME = AUTHOR
 SITETITLE = AUTHOR
-SITESUBTITLE = 'machine learning engineer - (data) scientist - reformed quant - habitual coder'
+SITESUBTITLE = 'machine_learning_engineer - (data)scientist - reformed_quant - habitual_coder'
 SITEDESCRIPION = 'Alex Ioannides on data science: data mining, statistics, machine learning, AI, functional programming, R, Python, Scala, Spark, Elasticsearch, AWS, DevOps...'
 
 # to match old WordPress site

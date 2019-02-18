@@ -1,4 +1,4 @@
-# ignore output directory - this is tracked by the alexioannides.github.io repo for use with GutHub pages
+# ignore output directory - this is tracked by the alexioannides.github.io repo for use with GitHub pages
 output/
 
 # Python byte-compiled / optimized / DLL files
@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# ignore virtual environment
+.venv
+
 # dev workspace files
+.idea
 .vscode
 .DS_Store

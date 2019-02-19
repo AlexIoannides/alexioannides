@@ -10,7 +10,7 @@ MCMC algorithms are, generally speaking, computationally expensive and do not sc
 
 Over the past few years, however, a new class of algorithms for inferring Bayesian models has been developed, that do **not** rely heavily on computationally expensive random sampling. These algorithms are referred to as Variational Inference (VI) algorithms and have been shown to be successful with the potential to scale to 'large' datasets.
 
-My preferred PPL is [PYMC3](https://docs.pymc.io) and offers a choice of both MCMC and VI algorithms for inferring models in Bayesian data analysis. This blog post is based on a Jupyter notebook located in [this GitHub repository](https://github.com/AlexIoannides/pymc3-advi-hmc-demo), whose purpose is to demonstrate using PYMC3, how MCMC and VI can both be used to perform a simple linear regression, and to make a basic comparison of their results.
+My preferred PPL is [PYMC3](https://docs.pymc.io) and offers a choice of both MCMC and VI algorithms for inferring models in Bayesian data analysis. This blog post is based on a Jupyter notebook located in [this GitHub repository](https://github.com/AlexIoannides/pymc-advi-hmc-demo), whose purpose is to demonstrate using PYMC3, how MCMC and VI can both be used to perform a simple linear regression, and to make a basic comparison of their results.
 
 ## A (very) Quick Introduction to Bayesian Data Analysis
 

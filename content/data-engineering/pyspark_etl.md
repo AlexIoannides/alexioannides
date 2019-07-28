@@ -1,5 +1,5 @@
 Title: Best Practices for PySpark ETL Projects
-Date: 2019-02-19
+Date: 2019-07-28
 Tags: data-engineering, data-processing, apache-spark, python
 
 ![png]({filename}/images/data-engineering/pyspark-etl/etl.png)

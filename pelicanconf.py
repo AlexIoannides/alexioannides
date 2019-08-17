@@ -58,6 +58,17 @@ CATEGORY_FEED_RSS = 'feeds/category/%s/rss.xml'
 TAG_FEED_RSS = 'feeds/tag/%s/rss.xml'
 RSS_FEED_SUMMARY_ONLY = False
 
+# Markdown
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.toc': {'title': ''},
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+}
+
 # Flex theme specific
 SITELOGO = '//avatars1.githubusercontent.com/u/5968486?s=460&v=4'
 FAVICON = '/images/favicon.ico'

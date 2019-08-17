@@ -16,6 +16,10 @@ I aim to addresses the following topics:
 - how to handle dependencies on other modules and packages; and,
 - what constitutes a 'meaningful' test for an ETL job.
 
+**Table of Contents**
+
+[TOC]
+
 ## PySpark ETL Project Structure
 
 The basic project structure is as follows:

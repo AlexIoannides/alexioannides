@@ -22,6 +22,10 @@ The purpose of this Python notebook is to demonstrate how Bayesian Inference and
 
 By simulating a Geometric Brownian Motion (GBM) and then estimating the parameters based on the randomly generated observations, we will quantify the impact of using Bayesian Inference against traditional ML estimation, when the available data is both plentiful and scarce - the latter being a scenario in which Bayesian Inference is shown to be especially powerful.
 
+**Table of Contents**
+
+[TOC]
+
 ## Imports and Global Settings
 
 Before we get going in earnest, we follow the convention of declaring all imports at the top of the notebook.

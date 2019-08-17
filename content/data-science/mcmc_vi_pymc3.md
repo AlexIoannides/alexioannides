@@ -12,6 +12,10 @@ Over the past few years, however, a new class of algorithms for inferring Bayesi
 
 My preferred PPL is [PYMC3](https://docs.pymc.io) and offers a choice of both MCMC and VI algorithms for inferring models in Bayesian data analysis. This blog post is based on a Jupyter notebook located in [this GitHub repository](https://github.com/AlexIoannides/pymc-advi-hmc-demo), whose purpose is to demonstrate using PYMC3, how MCMC and VI can both be used to perform a simple linear regression, and to make a basic comparison of their results.
 
+**Table of Contents**
+
+[TOC]
+
 ## A (very) Quick Introduction to Bayesian Data Analysis
 
 Like statistical data analysis more broadly, the main aim of Bayesian Data Analysis (BDA) is to infer unknown parameters for models of observed data, in order to test hypotheses about the physical processes that lead to the observations. Bayesian data analysis deviates from traditional statistics - on a practical level - when it comes to the explicit assimilation of prior knowledge regarding the uncertainty of the model parameters, into the statistical inference process and overall analysis workflow. To this end, BDA focuses on the posterior distribution,

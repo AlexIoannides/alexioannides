@@ -16,7 +16,11 @@ This blog post is designed to be read in conjunction with the code in [this GitH
 
 We will demonstrate ML model deployment using two different approaches: a first principles approach using Docker and Kubernetes; and then a deployment using the [Seldon-Core](https://www.seldon.io) Kubernetes native framework for streamlining the deployment of ML services. The former will help to appreciate the latter, which constitutes a powerful framework for deploying and performance-monitoring many complex ML model pipelines.
 
-## Containerising a Simple ML Model Scoring Service using Docker
+**Table of Contents**
+
+[TOC]
+
+## Containerising a Simple ML Model Scoring Service using Flask and Docker
 
 We start by demonstrating how to achieve this basic competence using the simple Python ML model scoring REST API contained in the `api.py` module, together with the `Dockerfile`, both within the `py-flask-ml-score-api` directory, whose core contents are as follows,
 
@@ -25,12 +29,12 @@ py-flask-ml-score-api/
  | Dockerfile
  | Pipfile
  | Pipfile.lock
- | api.py 
+ | api.py
 ```
 
 If you're already feeling lost then these files are discussed in the points below, otherwise feel free to skip to the next section.
 
-### `api.py`
+### Defining the Flask Service in the `api.py` Module
 
 This is a Python module that uses the [Flask](http://flask.pocoo.org) framework for defining a web service (`app`), with a function (`score`), that executes in response to a HTTP request to a specific URL (or 'route'), thanks to being wrapped by the `app.route` function. For reference, the relevant code is reproduced below,
 
@@ -54,7 +58,7 @@ If running locally - e.g. by starting the web service using `python run api.py` 
 
 In our example function, we expect an array of features, `X`, that we pass to a ML model, which in our example returns those same features back to the caller - i.e. our chosen ML model is the identity function, which we have chosen for purely demonstrative purposes. We could just as easily have loaded a pickled SciKit-Learn or Keras model and passed the data to the approproate `predict` method, returning a score for the feature-data as JSON - see [here](https://github.com/AlexIoannides/ml-workflow-automation/blob/master/deploy/py-sklearn-flask-ml-service/api.py) for an example of this in action.
 
-### `Dockerfile`
+### Defining the Docker Image with the `Dockerfile`
 
  A `Dockerfile` is essentially the configuration file used by Docker, that allows you to define the contents and configure the operation of a Docker container, when operational. This static data, when not executed as a container, is referred to as the 'image'. For reference, the `Dockerfile` is reproduced below,
 
@@ -65,7 +69,7 @@ COPY . .
 RUN pip install pipenv
 RUN pipenv install
 EXPOSE 5000
-ENTRYPOINT ["pipenv", "run", "python", "api.py"]
+CMD ["pipenv", "run", "python", "api.py"]
 ```
 
 In our example `Dockerfile` we:
@@ -79,7 +83,7 @@ In our example `Dockerfile` we:
 
  Building this custom image and asking the Docker daemon to run it (remember that a running image is a 'container'), will expose our RESTful ML model scoring service on port 5000 as if it were running on a dedicated virtual machine. Refer to the official [Docker documentation](https://docs.docker.com/get-started/) for a more comprehensive discussion of these core concepts.
 
-### Building the Docker Image for the ML Scoring Service
+### Building a Docker Image for the ML Scoring Service
 
 We assume that [Docker is running locally](https://www.docker.com) (both Docker client and daemon), that the client is logged into an account on [DockerHub](https://hub.docker.com) and that there is a terminal open in the this project's root directory. To build the image described in the `Dockerfile` run,
 
@@ -87,7 +91,11 @@ We assume that [Docker is running locally](https://www.docker.com) (both Docker 
 docker build --tag alexioannides/test-ml-score-api py-flask-ml-score-api
 ```
 
-Where 'alexioannides' refers to the name of the DockerHub account that we will push the image to, once we have tested it. To test that the image can be used to create a Docker container that functions as we expect it to use,
+Where 'alexioannides' refers to the name of the DockerHub account that we will push the image to, once we have tested it. 
+
+#### Testing
+
+To test that the image can be used to create a Docker container that functions as we expect it to use,
 
 ```bash
 docker run --rm --name test-api -p 5000:5000 -d alexioannides/test-ml-score-api
@@ -120,7 +128,7 @@ All our test model does is return the input data - i.e. it is the identity funct
 docker stop test-api
 ```
 
-### Pushing a Docker Image to DockerHub
+#### Pushing the Image to the DockerHub Registry
 
 In order for a remote Docker host or Kubernetes cluster to have access to the image we've created, we need to publish it to an image registry. All cloud computing providers that offer managed Docker-based services will provide private image registries, but we will use the public image registry at DockerHub, for convenience. To push our new image to DockerHub (where my account ID is 'alexioannides') use,
 
@@ -175,7 +183,7 @@ kubectl cluster-info
 
 Where `kubectl` is the standard Command Line Interface (CLI) client for interacting with the Kubernetes API (which was installed as part of Minikube, but is also available separately).
 
-### Deploying the Containerised ML Model Scoring Service on Kubernetes
+### Deploying the Containerised ML Model Scoring Service to Kubernetes
 
 To launch our test model scoring service on Kubernetes, we will start by deploying the containerised service within a Kubernetes [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/), whose rollout is managed by a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), which in in-turn creates a [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) - a Kubernetes resource that ensures a minimum number of pods (or replicas), running our service are operational at any given time. This is achieved with,
 
@@ -274,7 +282,7 @@ gcloud container clusters create k8s-test-cluster --num-nodes 3 --machine-type g
 
 And then go make a cup of coffee while you wait for the cluster to be created. Note, that this will automatically switch your `kubectl` context to point to the cluster on GCP, as you will see if you run, `kubectl config get-contexts`. To switch back to the Docker Desktop client use `kubectl config use-context docker-desktop`.
 
-### Launching the Containerised ML Model Scoring Service on the GCP
+### Launching the Containerised ML Model Scoring Service on GCP
 
 This is largely the same as we did for running the test service locally - run the following commands in sequence,
 
@@ -334,7 +342,7 @@ Where the list of available contexts can be found using,
 kubectl config get-contexts
 ```
 
-## Using YAML Files to Define and Deploy our ML Model Scoring Service
+## Using YAML Files to Define and Deploy the ML Model Scoring Service
 
 Up to this point we have been using Kubectl commands to define and deploy a basic version of our ML model scoring service. This is fine for demonstrative purposes, but quickly becomes limiting, as well as unmanageable. In practice, the standard way of defining entire Kubernetes deployments is with YAML files,  posted to the Kubernetes API. The `py-flask-ml-score.yaml` file in the `py-flask-ml-score-api` directory is an example of how our ML model scoring service can be defined in a single YAML file. This can now be deployed using a single command,
 
@@ -374,7 +382,7 @@ kubectl delete -f py-flask-ml-score-api/py-flask-ml-score.yaml
 
 Which saves us from having to use multiple commands to delete each component individually. Refer to the [official documentation for the Kubernetes API](https://kubernetes.io/docs/home/) to understand the contents of this YAML file in greater depth.
 
-## Using Helm Charts to Define and Deploy our ML Model Scoring Service
+## Using Helm Charts to Define and Deploy the ML Model Scoring Service
 
 Writing YAML files for Kubernetes can get repetitive and hard to manage, especially if there is a lot of 'copy-paste' involved, when only a handful of parameters need to be changed from one deployment to the next,  but there is a 'wall of YAML' that needs to be modified. Enter [Helm](https://helm.sh//) - a framework for creating, executing and managing Kubernetes deployment templates. What follows is a very high-level demonstration of how Helm can be used to deploy our ML model scoring service - for a comprehensive discussion of Helm's full capabilities (and here are a lot of them), please refer to the [official documentation](https://docs.helm.sh). Seldon-Core can also be deployed using Helm and we will cover this in more detail later on.
 
@@ -406,7 +414,7 @@ We can now deploy the Helm Tiller to a Kubernetes cluster, with the desired acce
 helm init --service-account tiller
 ```
 
-### Deploy our ML Model Scoring Service
+### Deploying with Helm
 
 To create a fresh Helm deployment definition - referred to as a 'chart' in Helm terminology - run,
 
@@ -514,7 +522,7 @@ The ML scoring service can now be tested in exactly the same way as we have done
 helm delete test-ml-app
 ```
 
-## Using Seldon to Deploy a ML Model Scoring Service on Kubernetes
+## Using Seldon to Deploy the ML Model Scoring Service to Kubernetes
 
 Seldon's core mission is to simplify the repeated deployment and management of complex ML prediction pipelines on top of Kubernetes. In this demonstration we are going to focus on the simplest possible example - i.e. the simple ML model scoring API we have already been using.
 
@@ -555,7 +563,7 @@ If response is as expected (i.e. it contains the same payload as the request), t
 docker push alexioannides/test-ml-score-seldon-api:latest
 ```
 
-### Deploying a ML Component with Seldon-Core
+### Deploying a ML Component with Seldon Core
 
 We now move on to deploying our Seldon compatible ML component to a Kubernetes cluster and creating a fault-tolerant and scalable service from it. To achieve this, we will [deploy Seldon-Core using Helm charts](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/install.html). We start by creating a namespace that will contain the `seldon-core-operator`, a custom Kubernetes resource required to deploy any ML model using Seldon,
 
@@ -654,7 +662,7 @@ If your request has been successful, then you should see a response along the li
 }
 ```
 
-### Tear Down
+## Tear Down
 
 To delete a single Seldon ML model and its namespace, deployed using the steps above, run,
 
@@ -690,6 +698,7 @@ If running on Docker Desktop, navigate to `Preferences -> Reset` to reset the cl
 The following list of resources will help you dive deeply into the subjects we skimmed-over above:
 
 - the full set of functionality provided by [Seldon](https://www.seldon.io/open-source/);
+- running multi-stage containerised workflows (e.g. for data engineering and model training) using [Argo Workflows](https://argoproj.github.io/argo);
 - the excellent '_Kubernetes in Action_' by Marko Lukša [available from Manning Publications](https://www.manning.com/books/kubernetes-in-action);
 - '_Docker in Action_' by Jeff Nickoloff and Stephen Kuenzli [also available from Manning Publications](https://www.manning.com/books/docker-in-action-second-edition); and,
 - _'Flask Web Development'_ by Miguel Grinberg [O'Reilly](http://shop.oreilly.com/product/0636920089056.do).

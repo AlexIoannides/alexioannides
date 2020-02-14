@@ -1,9 +1,11 @@
 Title: About Me
-Date: 2019-02-18
+Date: 2020-02-14
 
-I am currently employed by [Oracle](https://www.oracle.com), within their Adaptive Intelligent Apps team. The focus of my work is on automating the work-flows used to engineer, deploy, monitor and manage machine learning models, used at-scale throughout Oracle’s cloud applications.
+I am currently employed by [LiveMore Capital](http://www.livemorecapital.com) - an originate-to-distribute mortgage lender focusing on Retirement Interest Only (RIO) loans. I am a hands-on Chief Data Officer looking after the development of our data platform and all data engineering, machine learning and credit modelling activities.
 
-Prior to this, I was director of data science at [Perfect Channel](https://www.perfectchannel.com) - a medium-sized (fin)tech scale-up and provider of B2B transactional platforms, where I was responsible for the research, development and deployment of products that enabled clients to derive value from trade-event data – e.g. for measuring marketplace performance, price-optimisation, forecasting demand, recommending inventory and matching buyers-to-sellers programmatically. I was also responsible for the design and implementation of custom trading mechanisms - I think of this as applied game theory leaning heavily on 'optimisation methods' (linear and integer programming), as well as technology (e.g. micro-services).
+Prior to that I worked at [Oracle](https://www.oracle.com) within their Adaptive Intelligent Apps team, automating work-flows used for engineering, deploying and monitoring machine learning models embedded into in Oracle’s cloud applications.
+
+I came to Oracle from [Perfect Channel](https://www.perfectchannel.com) - a medium-sized (fin)tech scale-up and provider of B2B transactional platforms, where I was responsible for the research and development of trading algorithms and machine learning services that enabled clients to derive value from trade-event data – e.g. price-optimisation, inventory recommendation and the automated matching of buyers to sellers.
 
 Prior to all this I spent a lot of time thinking about credit derivatives and credit risk, in particular counterparty credit risk. So I know a thing or two about stochastic processes, time-series data, Monte Carlo methods and quantitative finance in general.
 

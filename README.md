@@ -4,32 +4,14 @@ Python source code for generating my personal website - hosted by GitHub pages a
 
 The output of the build process is written to the `output` folder in the root directory, that is **not** version controlled using this repository. Instead, the `output` directory has its own repository at [alexioannides](https://github.com/AlexIoannides/alexioannides), that is necessary for hosting with GitHub pages.
 
-## Managing Dependencies
+## Development Setup
 
-We use [pipenv](https://docs.pipenv.org) for managing project dependencies and Python environments (i.e. virtual environments). All of the direct packages dependencies required to run the code (i.e. Pelican and Markdown), are described in the `Pipfile`. Their precise downstream dependencies are described in `Pipfile.lock`.
-
-### Installing Pipenv
-
-To get started with Pipenv, first of all download it - assuming that there is a global version of Python available on your system and on the PATH, then this can be achieved by running the following command,
+The package's 3rd party dependencies are described in `requirements.txt`. Create a new virtual environment and install these dependencies as follows,
 
 ```bash
-pip3 install pipenv
-```
-
-Pipenv is also available to install from many non-Python package managers. For example, on OS X it can be installed using the [Homebrew](https://brew.sh) package manager, with the following terminal command,
-
-```bash
-brew install pipenv
-```
-
-For more information, including advanced configuration options, see the [official pipenv documentation](https://docs.pipenv.org).
-
-### Installing this Projects' Dependencies
-
-Make sure that you're in the project's root directory (the same one in which `Pipfile` resides), and then run,
-
-```bash
-pipenv install
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Building the Website
@@ -37,7 +19,7 @@ pipenv install
 To build the website we need to call Pelican,
 
 ```bash
-pipenv run pelican
+pelican
 ```
 
 ## Testing the Site Locally
@@ -46,7 +28,7 @@ We recommend setting `RELATIVE_URLS = True` when testing (do not forget to rever
 
 ```bash
 cd output
-pipenv run python -m pelican.server
+python -m pelican.server
 ```
 
 A test version of the website will then be available at `http://localhost:8000`.

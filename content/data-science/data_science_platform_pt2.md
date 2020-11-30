@@ -173,28 +173,28 @@ We are now ready to install R, R Studio and start using Sparklyr and/or SparkR t
 
 [3]: https://github.com/nchammas/flintrock "Flintrock"
 
-[4]: {filename}/images/data_science/data_science_platform_pt2/welcome_to_spark.png "spark-shell"
+[4]: {static}/images/data_science/data_science_platform_pt2/welcome_to_spark.png "spark-shell"
 
-[5]: {filename}/images/data_science/data_science_platform_pt2/figure_configure.png "FlintrockConfig"
+[5]: {static}/images/data_science/data_science_platform_pt2/figure_configure.png "FlintrockConfig"
 
 [6]: https://aws.amazon.com/ec2/pricing/ "AWS-pricing"
 
 [7]: https://aws.amazon.com/amazon-linux-ami/ "AMI"
 
-[8]: {filename}/images/data_science/data_science_platform_pt2/ec2_instances.png "EC2-dashboard"
+[8]: {static}/images/data_science/data_science_platform_pt2/ec2_instances.png "EC2-dashboard"
 
-[9]: {filename}/images/data_science/data_science_platform_pt2/instance_details.png "EC2-instances"
+[9]: {static}/images/data_science/data_science_platform_pt2/instance_details.png "EC2-instances"
 
-[10]: {filename}/images/data_science/data_science_platform_pt2/flintrock_security_group.png "SecurityGroup"
+[10]: {static}/images/data_science/data_science_platform_pt2/flintrock_security_group.png "SecurityGroup"
 
 [11]: http://whatismyip.com "whatismyip"
 
-[12]: {filename}/images/data_science/data_science_platform_pt2/spark_web_ui.png "SparkBebUI"
+[12]: {static}/images/data_science/data_science_platform_pt2/spark_web_ui.png "SparkBebUI"
 
-[13]: {filename}/images/data_science/data_science_platform_pt2/ssh_connect.png "SSH-details"
+[13]: {static}/images/data_science/data_science_platform_pt2/ssh_connect.png "SSH-details"
 
-[14]: {filename}/images/data_science/data_science_platform_pt2/ssh_master.png "SSH-connect"
+[14]: {static}/images/data_science/data_science_platform_pt2/ssh_master.png "SSH-connect"
 
 [15]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html "ElasticIP"
 
-[16]: {filename}/images/data_science/data_science_platform_pt2/spark.png "spark"
+[16]: {static}/images/data_science/data_science_platform_pt2/spark.png "spark"

@@ -2,9 +2,9 @@ Title: Deploying Python ML Models with Bodywork
 Date: 2020-12-01
 Tags: python, machine-learning, mlops, kubernetes, bodywork
 
-![bodywork_logo]({filename}/images/machine-learning-engineering/bodywork/bodywork-logo.png)
+![bodywork_logo]({static}/images/machine-learning-engineering/bodywork/bodywork-logo.png)
 
-I’ve written at length on the subject of deploying machine learning models and getting machine learning into production, an area that is now referred to as Machine Learning Operations (MLOps). My blog post on [*Deploying Python ML Models with Flask, Docker and Kubernetes*](https://alexioannides.com/2019/01/10/deploying-python-ml-models-with-flask-docker-and-kubernetes/) is viewed by hundreds of ML practitioners every month. At the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’. Thoughtwork’s essential thought-leadership piece on [Continuous delivery for machine learning](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) is now an essential reference for ML engineers, together with Google’s paper on the [*Hidden Technical Debt in Machine Learning Systems*](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html). [MLOps](https://en.wikipedia.org/wiki/MLOps) even has its own entry on Wikipedia.
+I’ve written at length on the subject of deploying machine learning models and getting machine learning into production, an area that is now referred to as Machine Learning Operations (MLOps). My blog post on [*Deploying Python ML Models with Flask, Docker and Kubernetes*]({filename}k8s-ml-ops.md) is viewed by hundreds of ML practitioners every month. At the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’. Thoughtwork’s essential thought-leadership piece on [Continuous delivery for machine learning](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) is now an essential reference for ML engineers, together with Google’s paper on the [*Hidden Technical Debt in Machine Learning Systems*](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html). [MLOps](https://en.wikipedia.org/wiki/MLOps) even has its own entry on Wikipedia.
 
 ## Why is MLOps Getting so Much Attention?
 
@@ -54,11 +54,11 @@ The ML problem we have chosen to use for this tutorial, is the classification of
 
 Bodywork ML projects must be stored as Git repositories, from where pre-built Bodywork containers running on Kubernetes (k8s), can pull them. There are no build artefacts - such as Docker images - that need to be built as part of the deployment process. Take a look at the Git repository for the example project and you will find the following directory structure,
 
-![example_project_root]({filename}/images/machine-learning-engineering/bodywork/example-project-root.png)
+![example_project_root]({static}/images/machine-learning-engineering/bodywork/example-project-root.png)
 
 The directories contain all the code required to run a single stage - for example, in the 'train-model' directory you will find the following files,
 
-![train_model_stage]({filename}/images/machine-learning-engineering/bodywork/train-model-stage.png)
+![train_model_stage]({static}/images/machine-learning-engineering/bodywork/train-model-stage.png)
 
 The remainder of this tutorial will be spent explaining the purpose of these files and demonstrating how they are used to map the ML task developed within the Jupyter notebook, into a ML pipeline that can be executed on a remote Kubernetes cluster, to provide a model-scoring service ready for production.
 

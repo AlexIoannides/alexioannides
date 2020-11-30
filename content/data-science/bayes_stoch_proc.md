@@ -2,7 +2,7 @@ Title: Stochastic Process Calibration using Bayesian Inference & Probabilistic P
 Date: 2019-01-18
 Tags: probabilistic-programming, python, pymc3, quant-finance, stochastic-processes
 
-![jpeg]({filename}/images/data_science/bayes_stoch_proc/trading_screen.jpg)
+![jpeg]({static}/images/data_science/bayes_stoch_proc/trading_screen.jpg)
 
 Stochastic processes are used extensively throughout quantitative finance - for example, to simulate asset prices in risk models that aim to estimate key risk metrics such as Value-at-Risk (VaR), Expected Shortfall (ES) and Potential Future Exposure (PFE). Estimating the parameters of a stochastic processes - referred to as 'calibration' in the parlance of quantitative finance -usually involves:
 
@@ -129,7 +129,7 @@ _ = sns.lineplot(x='day', y='s', data=example_data)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_10_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_10_0.png)
 
 
 ## The Traditional Approach to Parameter Estimation
@@ -169,7 +169,7 @@ _ = sns.distplot(returns_geo_full)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_13_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_13_0.png)
 
 
 The empirical distribution is relatively Normal in appearance, as expected. We now compute $\mu$ and $\sigma$ using the mean and standard deviation (or volatility) of this distribution.
@@ -211,7 +211,7 @@ _ = sns.distplot(returns_geo, bins=3)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_20_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_20_0.png)
 
 
 And the corresponding empirical parameter estimates.
@@ -283,7 +283,7 @@ _ = sns.lineplot(x=prior_mean_x, y=prior_mean_density)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_29_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_29_0.png)
 
 
 #### Choosing a Prior Distribution for the Volatility of Daily Returns
@@ -309,7 +309,7 @@ _ = sns.lineplot(x=prior_vol_x, y=prior_vol_density)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_33_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_33_0.png)
 
 
 ### Inference using a Probabilistic Program & Markov Chain Monte Carlo (MCMC)
@@ -375,7 +375,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_41_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_41_0.png)
 
 
 No obvious anomalies can be seen by visual inspection. We now compute the summary statistics for the inference (aggregating the draws from each train).
@@ -450,7 +450,7 @@ _ = az.plot_posterior(trace, round_to=9)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_45_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_45_0.png)
 
 
 And their dependency structure.
@@ -461,7 +461,7 @@ _ = az.plot_pair(trace)
 ```
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_47_0.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_47_0.png)
 
 
 Finally, we compute estimates for $\mu$ and $\sigma$, based on our Bayesian point-estimates.
@@ -507,7 +507,7 @@ _ = sns.distplot(returns_geo_bayes, hist=False, color='red')
 
 
 
-![png]({filename}/images/data_science/bayes_stoch_proc/output_52_1.png)
+![png]({static}/images/data_science/bayes_stoch_proc/output_52_1.png)
 
 
 We can clearly see that taking a Bayesian Inference approach to calibrating stochastic processes leads to more probability mass in the 'tails' of the distribution of geomtric returns.

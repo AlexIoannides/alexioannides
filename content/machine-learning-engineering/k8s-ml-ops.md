@@ -1,6 +1,6 @@
 Title: Deploying Python ML Models with Flask, Docker and Kubernetes
 Date: 2019-01-10
-Tags: python, machine-learning, machine-learning-operations, kubernetes, docker, GCP
+Tags: python, machine-learning, machine-learning-operations, kubernetes
 
 ![jpeg]({filename}/images/machine-learning-engineering/k8s-ml-ops/docker+k8s.jpg)
 

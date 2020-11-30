@@ -15,7 +15,7 @@ OUTPUT_PATH = 'output/'
 DELETE_OUTPUT_DIRECTORY = True
 OUTPUT_RETENTION = ['.git', 'README.md', 'CNAME']
 
-THEME = 'themes/Flex'
+THEME = 'themes/Flex2.3'
 EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/custom.css'},
 }

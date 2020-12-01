@@ -1,9 +1,9 @@
 Title: About Me
 Date: 2020-08-02
 
-I am currently a Solutions Architect for [Databricks](https://databricks.com), where I work closely with our customers at the early stages of commercial engagement, helping them to solve their data and machine learning problems using the Databricks platform.
+I am currently a Solutions Architect for [Databricks](https://databricks.com), working closely with customers at the early stages of commercial engagement, helping them to solve their data and machine learning problems using the Databricks platform.
 
-I am also the co-founder of [Bodywork Machine Learning](https://www.bodyworkml.com) , the creators of [Bodywork](https://bodywork.readthedocs.io/en/latest/) - an open-source MLOps framework used by machine learning engineers to automate the deployment and execution of model-training workloads and model-scoring services, on Kubernetes.
+I am also the co-founder of [Bodywork Machine Learning](https://www.bodyworkml.com), the creators of [Bodywork](https://bodywork.readthedocs.io/en/latest/) - an open-source MLOps framework used by machine learning engineers to automate the deployment and execution of model-training workloads and model-scoring services, on Kubernetes.
 
 Prior to this, I have worked with technology companies large and small, developing solutions to their data engineering and machine learning problems: I was Chief Data Officer for [LiveMore Capital](https://livemorecapital.com), where I built a cloud-based data platform to support their credit analytics and modelling activities; I worked within Oracle’s [Adaptive Intelligent Apps](https://www.oracle.com/applications/ai-apps/) team, automating workflows used to train, deploy and monitor machine learning models embedded within Oracle’s cloud applications; and prior to all this I worked for [Perfect Channel](https://www.perfectchannel.com), a medium-sized FinTech scale-up and provider of B2B transactional platforms, where I was responsible for the research and development of trading algorithms, and machine learning services that enabled clients to derive value from trade-event data.
 

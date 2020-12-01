@@ -253,7 +253,7 @@ I do not have a grand vision for `elasticsearchr` - I want to keep it a lightwei
 A big thank you to Hadley Wickham and Jeroen Ooms, the authors of the `httr` and `jsonlite` packages that `elasticsearchr` leans upon _heavily_.
 
 
-[esr_img]: {filename}/images/r/elasticsearchr/elasticsearchr2.png "Elasticsearchr"
+[esr_img]: {static}/images/r/elasticsearchr/elasticsearchr2.png "Elasticsearchr"
 
 [elastic]: https://www.elastic.co "Elastic corp."
 

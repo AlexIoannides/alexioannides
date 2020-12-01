@@ -15,7 +15,7 @@ OUTPUT_PATH = 'output/'
 DELETE_OUTPUT_DIRECTORY = True
 OUTPUT_RETENTION = ['.git', 'README.md', 'CNAME']
 
-THEME = 'themes/Flex'
+THEME = 'themes/Flex2.3'
 EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/custom.css'},
 }
@@ -51,11 +51,11 @@ MENUITEMS = (('Categories', '/categories.html'),
 # Feeds
 FEED_DOMAIN = SITEURL
 
-CATEGORY_FEED_ATOM = 'feeds/category/%s/atom.xml'
-TAG_FEED_ATOM = 'feeds/tag/%s/atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/category/{slug}/atom.xml'
+TAG_FEED_ATOM = 'feeds/tag/{slug}/atom.xml'
 
-CATEGORY_FEED_RSS = 'feeds/category/%s/rss.xml'
-TAG_FEED_RSS = 'feeds/tag/%s/rss.xml'
+CATEGORY_FEED_RSS = 'feeds/category/{slug}/rss.xml'
+TAG_FEED_RSS = 'feeds/tag/{slug}/rss.xml'
 RSS_FEED_SUMMARY_ONLY = False
 
 # Markdown

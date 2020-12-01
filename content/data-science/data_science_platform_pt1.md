@@ -105,20 +105,20 @@ All of the above steps could have been carried out through the console, but I pr
 
 We are now ready to fire-up a Spark cluster and use it to read our data (Part 2 in this series of blogs).
 
-[0]: {filename}/images/data_science/data_science_platform_pt1/0_region.png "Region"
+[0]: {static}/images/data_science/data_science_platform_pt1/0_region.png "Region"
 
-[1]: {filename}/images/data_science/data_science_platform_pt1/1_aws_create_account.png "AWS"
+[1]: {static}/images/data_science/data_science_platform_pt1/1_aws_create_account.png "AWS"
 
-[2]: {filename}/images/data_science/data_science_platform_pt1/3_user_credentials.png "User Credentials"
+[2]: {static}/images/data_science/data_science_platform_pt1/3_user_credentials.png "User Credentials"
 
-[3]: {filename}/images/data_science/data_science_platform_pt1/4_attach_policy.png "AttachPolicy"
+[3]: {static}/images/data_science/data_science_platform_pt1/4_attach_policy.png "AttachPolicy"
 
-[4]: {filename}/images/data_science/data_science_platform_pt1/5_admin_rights_policy.png "AdminAccess"
+[4]: {static}/images/data_science/data_science_platform_pt1/5_admin_rights_policy.png "AdminAccess"
 
-[5]: {filename}/images/data_science/data_science_platform_pt1/6_create_user_password.png "Password"
+[5]: {static}/images/data_science/data_science_platform_pt1/6_create_user_password.png "Password"
 
-[6]: {filename}/images/data_science/data_science_platform_pt1/7_user_login_link.png "UserLogin"
+[6]: {static}/images/data_science/data_science_platform_pt1/7_user_login_link.png "UserLogin"
 
-[7]: {filename}/images/data_science/data_science_platform_pt1/8_S3.png "S3"
+[7]: {static}/images/data_science/data_science_platform_pt1/8_S3.png "S3"
 
-[8]: {filename}/images/data_science/data_science_platform_pt1/aws.png "AWS"
+[8]: {static}/images/data_science/data_science_platform_pt1/aws.png "AWS"

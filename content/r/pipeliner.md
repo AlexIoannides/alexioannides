@@ -226,4 +226,4 @@ cv_rmse
 
 I built `pipeliner` largely to fill a hole in my own workflows. Up until now I've used Max Kuhn's excellent [caret package](http://topepo.github.io/caret/index.html "Caret") quite a bit, but for in-the-moment model building (e.g. within a R Notebook) it wasn't simplifying the code *that* much, and the style doesn't quite fit with the tidy and functional world that I now inhabit most of the time. So, I plugged the hole by myself. I intend to live with `pipeliner` for a while to get an idea of where it might go next, but I am always open to suggestions (and bug notifications) - please [leave any ideas here](https://github.com/AlexIoannides/pipeliner/issues "Pipeliner Issues on GitHub").
 
-[pipe_img]: {filename}/images/r/pipeliner/pipelines1.png "Pipelines!"
+[pipe_img]: {static}/images/r/pipeliner/pipelines1.png "Pipelines!"

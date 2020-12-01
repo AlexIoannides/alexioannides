@@ -185,13 +185,13 @@ We have nearly met all of the aims set-out at the beginning of this series of po
 
 [partTwo]: {filename}data_science_platform_pt2.md "Part 2"
 
-[sparklyr_img]: {filename}/images/data_science/data_science_platform_pt3/sparklyr.png "Command Line R"
+[sparklyr_img]: {static}/images/data_science/data_science_platform_pt3/sparklyr.png "Command Line R"
 
 [curl]: https://curl.haxx.se/ "CURL"
 
 [openssl]: https://www.openssl.org/ "OpenSSL"
 
-[rTerminal]: {filename}/images/data_science/data_science_platform_pt3/r_terminal.png "Command Line R"
+[rTerminal]: {static}/images/data_science/data_science_platform_pt3/r_terminal.png "Command Line R"
 
 [rStudio]: https://www.rstudio.com "rStudio"
 
@@ -199,9 +199,9 @@ We have nearly met all of the aims set-out at the beginning of this series of po
 
 [rStudioServerPreview]: https://www.rstudio.com/products/rstudio/download/preview/ "R Studio Server Preview"
 
-[rStudioServerLogin]: {filename}/images/data_science/data_science_platform_pt3/r_studio_login.png "R Studio Server Login"
+[rStudioServerLogin]: {static}/images/data_science/data_science_platform_pt3/r_studio_login.png "R Studio Server Login"
 
-[rStudioServer]: {filename}/images/data_science/data_science_platform_pt3/r_studio_server.png "R Studio Server"
+[rStudioServer]: {static}/images/data_science/data_science_platform_pt3/r_studio_server.png "R Studio Server"
 
 [sparklyr]: http://spark.rstudio.com/index.html "sparklyr"
 

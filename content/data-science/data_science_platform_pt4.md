@@ -220,13 +220,13 @@ I have met all of my initial aims - possibly more. I have myself a Spark-based R
 
 [zeppelin-dwnld]: http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-0.6.1/zeppelin-0.6.1-bin-all.tgz "Download Zeppelin"
 
-[zeppelin-logo]: {filename}/images/data_science/data_science_platform_pt4/zeppelin.png "Apache Zeppelin"
+[zeppelin-logo]: {static}/images/data_science/data_science_platform_pt4/zeppelin.png "Apache Zeppelin"
 
-[zeppelin-home]: {filename}/images/data_science/data_science_platform_pt4/zeppelin-home.png "Zeppelin Home"
+[zeppelin-home]: {static}/images/data_science/data_science_platform_pt4/zeppelin-home.png "Zeppelin Home"
 
-[zeppelin-nb]: {filename}/images/data_science/data_science_platform_pt4/zeppelin-nb.png "Zeppelin Scala Notebook"
+[zeppelin-nb]: {static}/images/data_science/data_science_platform_pt4/zeppelin-nb.png "Zeppelin Scala Notebook"
 
-[zeppelin-s3-nb]: {filename}/images/data_science/data_science_platform_pt4/zeppelin-s3-nb.png "Connecting to S3"
+[zeppelin-s3-nb]: {static}/images/data_science/data_science_platform_pt4/zeppelin-s3-nb.png "Connecting to S3"
 
 [zeppelin-auth]: http://zeppelin.apache.org/docs/0.6.1/security/shiroauthentication.html "Shiro on Zeppelin"
 

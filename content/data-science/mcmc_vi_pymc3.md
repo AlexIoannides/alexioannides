@@ -2,7 +2,7 @@ Title: Bayesian Regression in PYMC3 using MCMC & Variational Inference
 Date: 2018-11-07
 Tags: machine-learning, probabilistic-programming, python, pymc3
 
-![jpeg]({filename}/images/data_science/mcmc_vi_pymc3/pymc3_logo.jpg)
+![jpeg]({static}/images/data_science/mcmc_vi_pymc3/pymc3_logo.jpg)
 
 Conducting a Bayesian data analysis - e.g. estimating a Bayesian linear regression model - will usually require some form of Probabilistic Programming Language (PPL), unless analytical approaches (e.g. based on conjugate prior models), are appropriate for the task at hand. More often than not, PPLs implement Markov Chain Monte Carlo (MCMC) algorithms that allow one to draw samples and make inferences from the posterior distribution implied by the choice of model - the likelihood and prior distributions for its parameters - conditional on the observed data.
 
@@ -155,7 +155,7 @@ _ = sns.relplot(x='x', y='y', hue='category', data=model_data)
 </table>
 </div>
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_9_1.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_9_1.png)
 
 ## Split Data into Training and Test Sets
 
@@ -289,7 +289,7 @@ pm.summary(hmc_trace)
 </table>
 </div>
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_19_1.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_19_1.png)
 
 Firstly, note that `Rhat` values (the Gelman Rubin statistic) converging to 1 implies chain convergence for the marginal parameter distributions, while `n_eff` describes the effective number of samples after autocorrelations in the chains have been accounted for. We can see from the `mean` (point) estimate of each parameter that HMC has done a reasonable job of estimating our original parameters.
 
@@ -332,7 +332,7 @@ advi_elbo = pd.DataFrame(
 _ = sns.lineplot(y='log-ELBO', x='n', data=advi_elbo)
 ```
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_27_0.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_27_0.png)
 
 In order to be able to look at what we can infer from posterior distribution we have fit with ADVI, we first have to draw some samples from it, before summarising like we did with HMC inference.
 
@@ -412,7 +412,7 @@ pm.summary(advi_trace)
 </table>
 </div>
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_29_1.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_29_1.png)
 
 Not bad! The mean estimates are comparable, but we note that the standard deviations appear to be larger than those estimated with HMC.
 
@@ -446,7 +446,7 @@ _ = sns.lmplot(y='ADVI', x='HMC', data=prediction_data,
                line_kws={'color': 'red', 'alpha': 0.5})
 ```
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_34_1.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_34_1.png)
 
 As we might expect, given the parameter estimates, the two models generate similar predictions. 
 
@@ -460,7 +460,7 @@ param_samples_HMC = pd.DataFrame(
 _ = sns.scatterplot(x='alpha_0', y='beta_0', data=param_samples_HMC).set_title('HMC')
 ```
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_36_0.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_36_0.png)
 
 And again for ADVI.
 
@@ -472,7 +472,7 @@ param_samples_ADVI = pd.DataFrame(
 _ = sns.scatterplot(x='alpha_0', y='beta_0', data=param_samples_ADVI).set_title('ADVI')
 ```
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_38_0.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_38_0.png)
 
 We can see clearly the impact of ADVI's assumption of n-dimensional spherical Gaussians, manifest in the inference!
 
@@ -489,7 +489,7 @@ _ = sns.lmplot(y='ADVI', x='actual', data=prediction_data,
 
     RMSE for ADVI predictions = 0.746
 
-![png]({filename}/images/data_science/mcmc_vi_pymc3/output_40_1.png)
+![png]({static}/images/data_science/mcmc_vi_pymc3/output_40_1.png)
 
 Which is what one might expect, given the data generating model.
 

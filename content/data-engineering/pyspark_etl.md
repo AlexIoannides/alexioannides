@@ -2,7 +2,7 @@ Title: Best Practices for PySpark ETL Projects
 Date: 2019-07-28
 Tags: data-engineering, data-processing, apache-spark, python
 
-![png]({filename}/images/data-engineering/pyspark-etl/etl.png)
+![png]({static}/images/data-engineering/pyspark-etl/etl.png)
 
 
 I have often lent heavily on Apache Spark and the SparkSQL APIs for operationalising any type of batch data-processing 'job', within a production environment where handling fluctuating volumes of data reliably and consistently are on-going business concerns. These batch data-processing jobs may involve nothing more than joining data sources and performing aggregations, or they may apply machine learning models to generate inventory recommendations - regardless of the complexity, this often reduces to defining [Extract, Transform and Load (ETL)](https://en.wikipedia.org/wiki/Extract,_transform,_load) jobs. I'm a self-proclaimed Pythonista, so I use PySpark for interacting with SparkSQL and for writing and testing all of my ETL scripts.

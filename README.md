@@ -27,15 +27,14 @@ pelican
 We recommend setting `RELATIVE_URLS = True` when testing (do not forget to revert this before deploying) and then executing the following,
 
 ```bash
-cd output
-python -m pelican.server
+pelican --listen output
 ```
 
 A test version of the website will then be available at `http://localhost:8000`.
 
 ## Deploying to GitHub Pages
 
-After testing locally, first of all ensure that `RELATIVE_URLS = False`, rebuilding the website if necessary. Then, make sure that you are still in the `output` directory and remember that this is version controlled by a [different repository](https://github.com/AlexIoannides/alexioannides), that now needs new changes to be committed and pushed to `master` as usual - e.g.,
+After testing locally, first of all ensure that `RELATIVE_URLS = False`, rebuilding the website if necessary. Then, make sure that you are still in the `output` directory and remember that this is version controlled by a [different repository](https://github.com/AlexIoannides/alexioannides.github.io), that now needs new changes to be committed and pushed to `master` as usual - e.g.,
 
 ```bash
 git add -A

@@ -166,7 +166,7 @@ The same logic applies to accessing databases and executing SQL queries via [ODB
 I have only really scratched the surface of what is possible with futures. For example, [future][future] supports multiple execution plans including `lazy` and `cluster` (for multiple machines/nodes) - I have only focused on increasing performance on a single machine with multiple cores. If this post has provided some inspiration or left you curious, then head over to the official [future docs][future] for the full details (which are a joy to read and work-through).
 
 
-[future_pic]: {filename}/images/r/future/the_future.jpg "the_future"
+[future_pic]: {static}/images/r/future/the_future.jpg "the_future"
 
 [dplyr]: https://github.com/hadley/dplyr "dplyr on GitHub"
 

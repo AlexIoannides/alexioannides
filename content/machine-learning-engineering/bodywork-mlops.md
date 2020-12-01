@@ -4,51 +4,57 @@ Tags: python, machine-learning, mlops, kubernetes, bodywork
 
 ![bodywork_logo]({static}/images/machine-learning-engineering/bodywork/bodywork-logo.png)
 
-I’ve written at length on the subject of deploying machine learning models and getting machine learning into production, an area that is now referred to as Machine Learning Operations (MLOps). My blog post on [*Deploying Python ML Models with Flask, Docker and Kubernetes*]({filename}k8s-ml-ops.md) is viewed by hundreds of ML practitioners every month. At the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’. Thoughtwork’s essential thought-leadership piece on [Continuous delivery for machine learning](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) is now an essential reference for ML engineers, together with Google’s paper on the [*Hidden Technical Debt in Machine Learning Systems*](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html). [MLOps](https://en.wikipedia.org/wiki/MLOps) even has its own entry on Wikipedia.
+Once you have a viable solution to a Machine Learning (ML) task, that is often developed within a Jupyter notebook, you are then faced with an altogether different problem - how to engineer the solution into your product and how to maintain the performance of the solution as new instances of data are experienced.
 
-## Why is MLOps Getting so Much Attention?
+## What is this Tutorial Going to Teach Me?
 
-In my opinion, this is because we are at a point where a significant number of organisations have overcome their data ingestion and engineering problems, are able to provide their data scientists with the data they require to solve business problems using machine learning, only to find that, as Thoughtworks put it,
+* How to take a solution to a ML task, as developed within a Jupyter notebook, and map it into two separate Python modules for training a model and then deploying the trained model as a RESTful model-scoring API.
+* How to execute these 'train' and 'deploy' modules - that together form a simple ML pipeline (or workflow) - remotely on a [Kubernetes](https://kubernetes.io/) cluster, using [GitHub](https://github.com/) and [Bodywork](https://bodywork.readthedocs.io/en/latest/).
+* How to interact-with and test the model-scoring service that has been deployed to Kubernetes.
+* How to run the train-and-deploy workflow on a schedule, so the model is periodically re-trained when new data is available, but without the manual intervention of an ML engineer.
+
+## Introduction
+
+I’ve written at length on the subject of getting machine learning into production - an area that is now referred to as Machine Learning Operations (MLOps), and which is a hot topic within the field of ML engineering. For example, my blog post on [*Deploying Python ML Models with Flask, Docker and Kubernetes*]({filename}k8s-ml-ops.md) is viewed by hundreds of ML practitioners every month; at the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’; Thoughtwork’s thought-leadership piece on [*Continuous delivery for machine learning*](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) is now an essential reference for all ML engineers, together with Google’s paper on the [*Hidden Technical Debt in Machine Learning Systems*](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html); and MLOps even has its own [entry on Wikipedia](https://en.wikipedia.org/wiki/MLOps).
+
+### Why is MLOps Getting so Much Attention?
+
+In my opinion, this is because we are at a point where a significant number of organisations have now overcome their data ingestion and engineering problems. They are able to provide their data scientists with the data required to solve business problems using machine learning, only to find that, as Thoughtworks put it,
 
 > “*Getting machine learning applications into production is hard*”
 
-ML engineering teams appear to have settled on approaches to MLOps that are based-upon deploying containerised ML models, usually as RESTful model-scoring services, to some flavor of cloud platform. Kubernetes is especially useful for this as [I have written about before](https://alexioannides.com/2019/01/10/deploying-python-ml-models-with-flask-docker-and-kubernetes/).
+To tackle some of the core complexities of MLOps, ML engineering teams appear to have settled on approaches that are based-upon deploying containerised ML models, usually as RESTful model-scoring services, to some type of cloud platform. Kubernetes is especially useful for this as I have [written about before]({filename}k8s-ml-ops.md).
 
-## Bodywork for MLOps
+### Bodywork for MLOps
 
-Containerising ML code using [Docker](https://docs.docker.com), pushing the build artefacts to an image repository and then configuring Kubernetes to orchestrate pipelines into batch jobs and services, requires skills and expertise that most ML engineers do not have the time (and often the desire) to learn.
+Containerising ML code using [Docker](https://docs.docker.com), pushing the build artefacts to an image repository and then configuring Kubernetes to orchestrate ML pipelines into batch jobs and services, requires skills and expertise that most ML engineers do not have the time (and often the desire) to learn. Scale this scenario into one where there are multiple models to worry about, all needing to be re-trained and re-deployed, and it is easy to imagine how large and undesirable a burden this can become.
 
-And this is where the [Bodywork MLOps framework](https://bodywork.readthedocs.io/en/latest/) steps-in - to make sure that your code is delivered to the right place, at the right time, so that your models are trained, deployed and available to the rest of your team. Bodywork is a tool for ML engineers to:
+This is where the [Bodywork MLOps framework](https://bodywork.readthedocs.io/en/latest/) steps-in - to deliver your code to the right place and then execute it at the right time, so that your models are trained, deployed and available to the rest of your team. Bodywork is a tool aimed at ML engineers to help them:
 
-* automate the configuration of Kubernetes jobs and deployments to run complex ML workflows that result in ML model-scoring service deployments.
-* continuously deliver ML code - for training models and defining model-scoring services - directly from your Git repository into pre-built containers running on Kubernetes.
+* continuously deliver ML code - for training models and defining model-scoring services - by pulling it directly from Git repositories and into pre-built containers running on Kubernetes.
+* automate the configuration of Kubernetes jobs and deployments to run complex ML workflows, that result in ML model-scoring service deployments.
 
-In other words, it aims to automate the repetitive tasks that most ML engineers think of as [DevOps](https://en.wikipedia.org/wiki/DevOps), allowing them to focus their time on what they do best - machine learning.
+In other words, Bodywork automates the repetitive tasks that most ML engineers think of as [DevOps](https://en.wikipedia.org/wiki/DevOps), allowing them to focus their time on what they do best - machine learning.
 
-This post aims to providing a short tutorial on how to use Bodywork to productionise the most common MLOps use-case - train-and-deploy. We will refer to the [example bodywork ML project](https://github.com/bodywork-ml/bodywork-ml-ops-project) (GitHub) repository and the files within it.
+This post serves as a short tutorial on how to use Bodywork to productionise the most common MLOps use-case - train-and-deploy.
 
-**DISCLAIMER** - I am one of the co-founders of [Bodywork Machine Learning](https://www.bodyworkml.com)!
+![train_and_deploy]({static}/images/machine-learning-engineering/bodywork/concepts_train_and_deploy.png)
 
-## Prerequisites
+We will refer to the [example bodywork ML project (GitHub) repository](https://github.com/bodywork-ml/bodywork-ml-ops-project) and the files within it.
 
-If you want to execute the examples below, then you will need:
+### Prerequisites
+
+If you want to execute the example code, then you will need:
 
 * to [install the bodywork Python package](https://bodywork.readthedocs.io/en/latest/installation/) on your local machine.
 * access to a Kubernetes cluster - either locally using [minikube](https://minikube.sigs.k8s.io/docs/) or [Docker-for-desktop](https://www.docker.com/products/docker-desktop), or as a managed service from a cloud provider, such as [EKS on AWS](https://aws.amazon.com/eks) or [AKS on Azure](https://azure.microsoft.com/en-us/services/kubernetes-service/).
 * [Git](https://git-scm.com) and a basic understanding of how to use it.
 
-Familiarity with basic [Kubernetes concepts](https://kubernetes.io/docs/concepts/) and some exposure to the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool will make life easier. The introductory article I wrote on [Deploying Python ML Models with Flask, Docker and Kubernetes](https://alexioannides.com/2019/01/10/deploying-python-ml-models-with-flask-docker-and-kubernetes/), is a good place to start.
+Familiarity with basic [Kubernetes concepts](https://kubernetes.io/docs/concepts/) and some exposure to the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool will make life easier. The introductory article I wrote on [*Deploying Python ML Models with Flask, Docker and Kubernetes*]({filename}k8s-ml-ops.md), is a good place to start.
 
-## What is this Tutorial Going to Teach Me?
+## Starting with a Solution to a ML Task
 
-* How to take a ML project defined within a Jupyter notebook and map it into separate Python modules for training and deploying the model as a RESTful model-scoring API.
-* How to execute these train and deploy modules - the ML pipeline - on Kubernetes, using GitHub and Bodywork.
-* How to interact-with and test the model-scoring service that has been deployed to Kubernetes.
-* How to run the train-and-deploy pipeline on a schedule, so the model is continuously update without the manual intervention of an ML engineer.
-
-## The Machine Learning Task
-
-The ML problem we have chosen to use for this tutorial, is the classification of iris plants into one of their three sub-species using the famous [iris plants dataset](https://scikit-learn.org/stable/datasets/index.html#iris-dataset). The [ml_prototype_work.ipynb](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/ml_prototype_work.ipynb) notebook found in the root of this tutorial's GitHub repository, documents the trivial ML workflow used to train a Decision Tree classifier for this multi-class classification task, as well as to prototype some of the work that will be required to engineer and deploy the final prediction (or scoring) service.
+The ML problem we have chosen to use for this tutorial, is the classification of iris plants into one of their three sub-species using the famous [iris plants dataset](https://scikit-learn.org/stable/datasets/index.html#iris-dataset). The [ml_prototype_work notebook](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/ml_prototype_work.ipynb) found in the root of this tutorial's GitHub repository, documents the trivial ML workflow used to train a Decision Tree classifier as a solution to this multi-class classification task, as well as to prototype some of the work that will be required to engineer and deploy the final prediction (or scoring) service.
 
 ## The Bodywork Project
 
@@ -56,15 +62,19 @@ Bodywork ML projects must be stored as Git repositories, from where pre-built Bo
 
 ![example_project_root]({static}/images/machine-learning-engineering/bodywork/example-project-root.png)
 
-The directories contain all the code required to run a single stage - for example, in the 'train-model' directory you will find the following files,
+The sub-directories contain all the code required to run a single stage - for example, in the `stage-1-train-model` directory you will find the following files,
 
 ![train_model_stage]({static}/images/machine-learning-engineering/bodywork/train-model-stage.png)
 
-The remainder of this tutorial will be spent explaining the purpose of these files and demonstrating how they are used to map the ML task developed within the Jupyter notebook, into a ML pipeline that can be executed on a remote Kubernetes cluster, to provide a model-scoring service ready for production.
+And similarly, in the `stage-2-deploy-scoring-service` directory you will find the following files,
+
+![deploy_model_stage]({static}/images/machine-learning-engineering/bodywork/deploy-model-stage.png)
+
+The remainder of this tutorial will be spent explaining the purpose of these files and demonstrating how they are used to map the ML task developed within the Jupyter notebook, into a ML workflow that can be executed on a remote Kubernetes cluster, to provide a model-scoring service ready for production.
 
 ### Configuring a Bodywork Batch Stage for Training the Model
 
-The `stage-1-train-model` directory contains the code and configuration required to train the model within a pre-built container on a k8s cluster, as a batch workload. Using the `ml_prototype_work.ipynb` notebook as a reference, the [train_model.py](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-1-train-model/train_model.py) module contains the code required to:
+The `stage-1-train-model` directory contains the code and configuration required to train the model within a pre-built container on a k8s cluster, as a batch workload. Using the [ml_prototype_work notebook](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/ml_prototype_work.ipynb) as a reference, the [train_model.py](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-1-train-model/train_model.py) module contains the code required to:
 
 * download data from an AWS S3 bucket;
 * pre-process the data (e.g. extract labels for supervised learning);
@@ -75,13 +85,13 @@ The [requirements.txt](https://github.com/bodywork-ml/bodywork-ml-ops-project/bl
 
 ### Configuring a Bodywork Service-Deployment Stage for Creating a ML Scoring Service
 
-The `stage-2-deploy-scoring-service` directory contains the code and configuration required to load the model trained in `stage-1-train-model` and use it as part of the code for a RESTful API endpoint definition, that will accept a single instance (or row) of data encoded as JSON in a HTTP request, and return the model’s prediction as JSON data in the corresponding HTTP response. We have decided to chose the Python [Flask](https://flask.palletsprojects.com/en/1.1.x/) framework with which to create our REST API server, which will be deployed to k8s and exposed as a service on the cluster, after this stage completes. The use of Flask is **not** a requirement in any way and you are free to use different frameworks - e.g. [FastAPI](https://fastapi.tiangolo.com).
+The `stage-2-deploy-scoring-service` directory contains the code and configuration required to load the model trained in `stage-1-train-model` and use it as part of the code for a RESTful API endpoint definition, that will accept a single instance (or row) of data encoded as JSON in a HTTP request, and return the model’s prediction as JSON data in the corresponding HTTP response. We have decided to use the [Flask](https://flask.palletsprojects.com/en/1.1.x/) framework with which to create our REST API server, which will be deployed to k8s and exposed as a service on the cluster, after this stage completes. The use of Flask is **not** a requirement in any way and you are free to use different frameworks - e.g. [FastAPI](https://fastapi.tiangolo.com).
 
-Within this stage’s directory, [requirements.txt](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-2-deploy-scoring-service/requirements.txt) lists the 3rd party Python packages that will be Pip-installed on the Bodywork host container in order to run [serve_model.py](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-2-deploy-scoring-service/serve_model.py), which defines the REST API server containing our ML scoring endpoint. The [config.ini](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-2-deploy-scoring-service/serve_model.py) file allows us to specify that this stage is a service-deployment stage (as opposed to a batch stage), that `serve_model.py` should be the script that is run, as well as an estimate of the CPU and memory resources to request from the k8s cluster, how long to wait for the service to start-up and be ‘ready’, which port to expose and how many instances (or replicas) of the server should be created to stand-behind the cluster-service.
+Within this stage’s directory, [requirements.txt](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-2-deploy-scoring-service/requirements.txt) lists the 3rd party Python packages that will be Pip-installed on the Bodywork host container in order to run [serve_model.py](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-2-deploy-scoring-service/serve_model.py), which defines the REST API server containing our ML scoring endpoint. The [config.ini](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/stage-2-deploy-scoring-service/config.ini) file allows us to specify that this stage is a service-deployment stage (as opposed to a batch stage), that `serve_model.py` should be the script that is run, as well as an estimate of the CPU and memory resources to request from the k8s cluster, how long to wait for the service to start-up and be ‘ready’, which port to expose and how many instances (or replicas) of the server should be created to stand-behind the cluster-service.
 
 ### Configuring the Complete Bodywork Workflow
 
-The [bodywork.ini](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/bodywork.ini) file in the root of this repository contains the configuration for the whole workflow - a workflow being a collection of stages, run in a specific order, that can be represented by a Directed Acyclic Graph (or DAG). The most important element is the specification of the workflow DAG, which in this instance is simple,
+The [bodywork.ini](https://github.com/bodywork-ml/bodywork-ml-ops-project/blob/master/bodywork.ini) file in the root of the project repository contains the configuration for the whole workflow - a workflow being a collection of stages, run in a specific order, that can be represented by a Directed Acyclic Graph (or DAG). The most important element is the specification of the workflow DAG, which in this instance is simple,
 
 ```text
 DAG = stage-1-train-model >> stage-2-deploy-scoring-service
@@ -142,7 +152,7 @@ If successful, you should get the following response,
 
 ## Executing the Workflow on a Schedule
 
-If you’re happy with the test results, then you can schedule the workflow-controller to operate remotely on the cluster as a k8s cronjob. To setup the the workflow to run every hour, for example, use the following command,
+If you’re happy with the test results, then you can schedule the workflow-controller to operate remotely on the cluster as a k8s cronjob. As an example, to setup the the workflow to run every hour, use the following command,
 
 ```text
 bodywork cronjob create \
@@ -170,7 +180,7 @@ JOB_NAME                                START_TIME                    COMPLETION
 iris-classification-1605214260          2020-11-12 20:51:04+00:00     2020-11-12 20:52:34+00:00     0           1               0
 ```
 
-Then to stream the logs from any given cronjob run (e.g. to debug and/or monitor for errors), use,
+Then to stream the logs from any given cronjob run - e.g. to debug and/or monitor for errors - use,
 
 ```text
 bodywork cronjob logs \
@@ -189,3 +199,7 @@ kubectl delete ns iris-classification
 ## Where to go from Here
 
 Read the [official Bodywork documentation](https://bodywork.readthedocs.io/en/latest/) or ask a question on the [bodywork discussion forum](https://bodywork.flarum.cloud/).
+
+## Discosure
+
+I am one of the co-founders of [Bodywork Machine Learning](https://www.bodyworkml.com)!

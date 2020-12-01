@@ -27,8 +27,7 @@ pelican
 We recommend setting `RELATIVE_URLS = True` when testing (do not forget to revert this before deploying) and then executing the following,
 
 ```bash
-cd output
-python -m pelican.server
+pelican --listen output
 ```
 
 A test version of the website will then be available at `http://localhost:8000`.

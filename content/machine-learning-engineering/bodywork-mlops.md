@@ -15,7 +15,7 @@ Once you have a viable solution to a Machine Learning (ML) task, that is often d
 
 ## Introduction
 
-I’ve written at length on the subject of getting machine learning into production - an area that is now referred to as Machine Learning Operations (MLOps), and which is a hot topic within the field of ML engineering. For example, my blog post on [*Deploying Python ML Models with Flask, Docker and Kubernetes*]({filename}k8s-ml-ops.md) is viewed by hundreds of ML practitioners every month; at the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’; Thoughtwork’s thought-leadership piece on [*Continuous delivery for machine learning*](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) is now an essential reference for all ML engineers, together with Google’s paper on the [*Hidden Technical Debt in Machine Learning Systems*](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html); and MLOps even has its own [entry on Wikipedia](https://en.wikipedia.org/wiki/MLOps).
+I’ve written at length on the subject of getting machine learning into production - an area that is now referred to as Machine Learning Operations (MLOps), and which is a hot topic within the field of ML engineering. For example, my [blog post]({filename}k8s-ml-ops.md) on *Deploying Python ML Models with Flask, Docker and Kubernetes* is viewed by hundreds of ML practitioners every month; at the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’; Thoughtwork’s [essay](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) on *Continuous Delivery for ML* is now an essential reference for all ML engineers, together with Google’s [paper](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html) on the *Hidden Technical Debt in Machine Learning Systems*; and MLOps even has its own entry on [Wikipedia](https://en.wikipedia.org/wiki/MLOps).
 
 ### Why is MLOps Getting so Much Attention?
 
@@ -46,8 +46,8 @@ We will refer to the [example bodywork ML project (GitHub) repository](https://g
 
 If you want to execute the example code, then you will need:
 
-* to [install the bodywork Python package](https://bodywork.readthedocs.io/en/latest/installation/) on your local machine.
-* access to a Kubernetes cluster - either locally using [minikube](https://minikube.sigs.k8s.io/docs/) or [Docker-for-desktop](https://www.docker.com/products/docker-desktop), or as a managed service from a cloud provider, such as [EKS on AWS](https://aws.amazon.com/eks) or [AKS on Azure](https://azure.microsoft.com/en-us/services/kubernetes-service/).
+* to [install](https://bodywork.readthedocs.io/en/latest/installation/) the bodywork Python package on your local machine.
+* access to a Kubernetes cluster - either locally using [minikube](https://minikube.sigs.k8s.io/docs/) or [Docker-for-desktop](https://www.docker.com/products/docker-desktop), or as a managed service from a cloud provider, such as [EKS](https://aws.amazon.com/eks) from AWS or [AKS](https://azure.microsoft.com/en-us/services/kubernetes-service/) from Azure.
 * [Git](https://git-scm.com) and a basic understanding of how to use it.
 
 Familiarity with basic [Kubernetes concepts](https://kubernetes.io/docs/concepts/) and some exposure to the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool will make life easier. The introductory article I wrote on [*Deploying Python ML Models with Flask, Docker and Kubernetes*]({filename}k8s-ml-ops.md), is a good place to start.
@@ -198,7 +198,7 @@ $ kubectl delete ns iris-classification
 
 ## Where to go from Here
 
-Read the [official Bodywork documentation](https://bodywork.readthedocs.io/en/latest/) or ask a question on the [bodywork discussion forum](https://bodywork.flarum.cloud/).
+Read the official Bodywork [documentation](https://bodywork.readthedocs.io/en/latest/) or ask a question on the Bodywork [discussion forum](https://bodywork.flarum.cloud/).
 
 ## Disclosure
 

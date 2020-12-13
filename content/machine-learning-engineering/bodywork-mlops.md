@@ -13,6 +13,10 @@ Once you have a viable solution to a Machine Learning (ML) task, that is often d
 * How to interact-with and test the model-scoring service that has been deployed to Kubernetes.
 * How to run the train-and-deploy workflow on a schedule, so the model is periodically re-trained when new data is available, but without the manual intervention of an ML engineer.
 
+**Table of Contents**
+
+[TOC]
+
 ## Introduction
 
 I’ve written at length on the subject of getting machine learning into production - an area that is now referred to as Machine Learning Operations (MLOps), a hot topic within the field of ML engineering. For example, my [blog post]({filename}k8s-ml-ops.md) on *Deploying Python ML Models with Flask, Docker and Kubernetes* is viewed by hundreds of ML practitioners every month; at the recent [Data and AI Summit](https://databricks.com/dataaisummit/europe-2020/agenda?_sessions_focus_tax=productionizing-machine-learning) there was an entire track devoted to ‘Productionizing Machine Learning’; Thoughtwork’s [essay](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) on *Continuous Delivery for ML* is now an essential reference for all ML engineers, together with Google’s [paper](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html) on the *Hidden Technical Debt in Machine Learning Systems*; and MLOps even has its own entry on [Wikipedia](https://en.wikipedia.org/wiki/MLOps).
@@ -25,7 +29,7 @@ In my opinion, this is because we are at a point where a significant number of o
 
 To tackle some of the core complexities of MLOps, many ML engineering teams have settled on approaches that are based-upon deploying containerised ML models, usually as RESTful model-scoring services, to some type of cloud platform. Kubernetes is especially useful for this as I have [written about before]({filename}k8s-ml-ops.md).
 
-### Bodywork for MLOps
+### MLOps with Bodywork
 
 The process of containerising machine learning code using Docker to build images, pushing the build artefacts to an image repository and then configuring a container orchestration platform to run batch workloads and deploy services, requires skills and expertise that most machine learning engineers do not have the time (and often the desire) to learn.
 
@@ -319,7 +323,7 @@ Note that you can also keep track of the current state of all k8s resources crea
 $ kubectl -n iris-classification get all
 ```
 
-#### Testing the Model-Scoring Microservice
+#### Testing the Model-Scoring Service
 
 Once the workflow has completed, the ML scoring service deployed within your cluster can be tested from your local machine, by first of all running `kubectl proxy` in one shell, and then in a new shell using the `curl` tool as follows,
 

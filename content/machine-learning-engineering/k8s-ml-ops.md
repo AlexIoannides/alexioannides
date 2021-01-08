@@ -5,7 +5,7 @@ Tags: python, machine-learning, machine-learning-operations, kubernetes
 ![jpeg]({static}/images/machine-learning-engineering/k8s-ml-ops/docker+k8s.jpg)
 
 * **17th August 2019** - _updated to reflect changes in the Kubernetes API and Seldon Core._
-* **14th December 2020** - _the work in post forms the basis of the [Bodywork](https://bodywork.readthedocs.io/en/latest/) MLOps framework - read about it [here]({filename}bodywork-mlops.md)._
+* **14th December 2020** - _the work in this post forms the basis of the [Bodywork](https://bodywork.readthedocs.io/en/latest/) MLOps framework - read about it [here]({filename}bodywork-mlops.md)._
 
 A common pattern for deploying Machine Learning (ML) models into production environments - e.g. ML models trained using the SciKit Learn or Keras packages (for Python), that are ready to provide predictions on new data - is to expose these ML models as RESTful API microservices, hosted from within [Docker](https://www.docker.com) containers. These can then deployed to a cloud environment for handling everything required for maintaining continuous availability - e.g. fault-tolerance, auto-scaling, load balancing and rolling service updates.
 

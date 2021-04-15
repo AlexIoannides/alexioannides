@@ -4,12 +4,12 @@ Tags: python, machine-learning, mlops, kubernetes, bodywork
 
 ![bodywork_logo]({static}/images/machine-learning-engineering/bodywork/bodywork-logo.png)
 
-Solutions to Machine Learning (ML) tasks are often developed within Jupyter notebooks. Once a candidate solution is found, you are then faced with an altogether different problem - how to engineer the solution into your product and how to maintain the performance of the solution when new data is generated.
+Solutions to Machine Learning (ML) tasks are often developed within Jupyter notebooks. Once a solution is developed you are then faced with an altogether different problem - how to engineer the solution into your product and how to maintain the performance of the solution through time, as new data is generated.
 
 ## What is this Tutorial Going to Teach Me?
 
 * How to take a solution to a ML task within a Jupyter notebook, and map it into two Python modules: one for training a model and one for serving the trained model via a REST API endpoint.
-* How to execute the `train` and `deploy` modules (a simple ML pipeline), remotely on a [Kubernetes](https://kubernetes.io/) cluster, using [GitHub](https://github.com/) and [Bodywork](https://bodywork.readthedocs.io/en/latest/).
+* How to execute the `train` and `deploy` modules (a simple ML pipeline), on a [Kubernetes](https://kubernetes.io/) cluster using [Bodywork](https://bodywork.readthedocs.io/en/latest/).
 * How to test the REST API service that has been deployed to Kubernetes.
 * How to run the pipeline on a schedule, so that the model is periodically re-trained and then re-deployed, without the manual intervention of an ML engineer.
 
@@ -19,7 +19,7 @@ Solutions to Machine Learning (ML) tasks are often developed within Jupyter note
 
 ## Introduction
 
-I’ve written at length on the subject of getting machine learning into production - an area that now falls under Machine Learning Operations (MLOps). MLOps is a hot topic within the field of machine learning engineering. For example, my [blog post]({filename}k8s-ml-ops.md) on *Deploying Python ML Models with Flask, Docker and Kubernetes* is viewed by hundreds of machine learning practitioners every month; Thoughtwork’s [essay](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) on *Continuous Delivery for ML* has become an essential reference for all machine learning engineers, together with Google’s [paper](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html) on the *Hidden Technical Debt in Machine Learning Systems*; and MLOps even has its own entry on [Wikipedia](https://en.wikipedia.org/wiki/MLOps).
+I’ve written at length on the subject of getting machine learning into production - an area that now falls under Machine Learning Operations (MLOps). MLOps is currently a pressing topic within the field of machine learning engineering. As an example of this, take my [blog post]({filename}k8s-ml-ops.md) on *Deploying Python ML Models with Flask, Docker and Kubernetes*, which is accessed by hundreds of machine learning practitioners every month; or the fact that Thoughtwork’s [essay](https://www.thoughtworks.com/insights/articles/intelligent-enterprise-series-cd4ml) on *Continuous Delivery for ML* has become an essential reference for all machine learning engineers, together with Google’s [paper](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html) on the *Hidden Technical Debt in Machine Learning Systems*; and MLOps even has its own entry on [Wikipedia](https://en.wikipedia.org/wiki/MLOps).
 
 ### Why is MLOps Getting so Much Attention?
 
@@ -37,7 +37,7 @@ Most machine learning engineers do not, however, have the time to develop the sk
 
 Developing and maintaining these deployment pipelines is time-consuming. If there are multiple projects - each requiring re-training and re-deployment - then the management of these pipelines will quickly become a large burden.
 
-This is where Bodywork steps-in - It will deliver your project's Python modules directly from your Git repository into Docker containers and manage their deployment to a Kubernetes cluster. In other words, Bodywork automates the repetitive tasks that most machine learning engineers think of as [DevOps](https://en.wikipedia.org/wiki/DevOps), allowing them to focus their time on what they do best - machine learning.
+This is where Bodywork steps-in - it will deliver your project's Python modules directly from your Git repository into Docker containers and manage their deployment to a Kubernetes cluster. In other words, Bodywork automates the repetitive tasks that most machine learning engineers think of as [DevOps](https://en.wikipedia.org/wiki/DevOps), allowing them to focus their time on what they do best - machine learning.
 
 This post serves as a short tutorial on how to use Bodywork to productionise a common ML pipeline - train-and-deploy. This tutorial refers to files within a Bodywork project hosted on GitHub - see [bodywork-ml-pipeline-project](https://github.com/bodywork-ml/bodywork-ml-pipeline-project).
 

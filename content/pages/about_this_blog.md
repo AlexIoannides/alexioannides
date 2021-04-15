@@ -1,7 +1,7 @@
 Title: About this Blog
 Date: 2019-2-18
 
-Although I am interested in [many things]({filename}about_me.md), this blog is focused on the disciplines of *data science* and *machine learning engineering and operations*. Given that these are nebulous and over-used catch-all phrases I'll be more specific - this is a blog about everything that's involved in turning raw data into *information* that one could *do something with*, via tangible *end products* that deliver *value* to someone or something. As I see it, this covers the methods and tools used for:
+Although I am interested in [many things]({filename}about_me.md), this blog is focused on the disciplines of *data science*,  *machine learning engineering and operations*. Given that these are nebulous and over-used catch-all phrases I'll be more specific - this is a blog about everything that's involved in turning raw data into *information* that one could *do something with*, via tangible *end products* that deliver *value* to someone or something. As I see it, this covers the methods and tools used for:
 
 * data ingestion and storage;
 * data extraction and transformation (ETL);

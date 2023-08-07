@@ -81,7 +81,7 @@ SOCIAL = (('github', 'https://github.com/alexioannides'),
           ('twitter', 'https://twitter.com/ioannides_alex'),
           ('soundcloud', 'https://soundcloud.com/user-616657739'))
 
-LINKS = (('ML Study Notes & Demos', 'https://alexioannides.com/data-science-and-ml-notebook/'),)
+LINKS = (('Study Notes & Demos', 'https://alexioannides.com/notes-and-demos/'),)
 
 # Flex theme integrations
 DISQUS_SITENAME = 'alexioannides'

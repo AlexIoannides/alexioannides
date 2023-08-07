@@ -56,7 +56,7 @@ TAG_FEED_ATOM = 'feeds/tag/{slug}/atom.xml'
 
 CATEGORY_FEED_RSS = 'feeds/category/{slug}/rss.xml'
 TAG_FEED_RSS = 'feeds/tag/{slug}/rss.xml'
-RSS_FEED_SUMMARY_ONLY = False
+# RSS_FEED_SUMMARY_ONLY = False
 
 # Markdown
 MARKDOWN = {
@@ -81,9 +81,7 @@ SOCIAL = (('github', 'https://github.com/alexioannides'),
           ('twitter', 'https://twitter.com/ioannides_alex'),
           ('soundcloud', 'https://soundcloud.com/user-616657739'))
 
-# LINKS = (('Pelican', 'http://getpelican.com/'),
-#          ('Python.org', 'http://python.org/'),
-#          ('Jinja2', 'http://jinja.pocoo.org/'))
+LINKS = (('ML Study Notes & Demos', 'https://alexioannides.com/data-science-and-ml-notebook/'),)
 
 # Flex theme integrations
 DISQUS_SITENAME = 'alexioannides'

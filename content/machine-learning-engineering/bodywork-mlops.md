@@ -1,8 +1,8 @@
-Title: Deploying Python ML Models with Bodywork
+Title: Deploying ML Models with Bodywork
 Date: 2020-12-01
 Tags: python, machine-learning, mlops, kubernetes, bodywork
 
-![bodywork_logo]({static}/images/machine-learning-engineering/bodywork/bodywork-logo.png)
+![bodywork_logo]({static}/images/machine-learning-engineering/bodywork/bodywork-cli.png)
 
 Solutions to Machine Learning (ML) tasks are often developed within Jupyter notebooks. Once a solution is developed you are then faced with an altogether different problem - how to engineer the solution into your product and how to maintain the performance of the solution through time, as new data is generated.
 

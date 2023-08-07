@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 PATH = 'content'
 STATIC_PATHS = ['images', 'extra']
@@ -81,7 +81,7 @@ SOCIAL = (('github', 'https://github.com/alexioannides'),
           ('twitter', 'https://twitter.com/ioannides_alex'),
           ('soundcloud', 'https://soundcloud.com/user-616657739'))
 
-LINKS = (('ML Notes & Demos', 'https://alexioannides.com/data-science-and-ml-notebook/'),)
+LINKS = (('ML Study Notes & Demos', 'https://alexioannides.com/data-science-and-ml-notebook/'),)
 
 # Flex theme integrations
 DISQUS_SITENAME = 'alexioannides'

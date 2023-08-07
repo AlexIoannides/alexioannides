@@ -1,22 +1,22 @@
 Title: Deploying ML Models with Bodywork
 Date: 2020-12-01
 
-
 Tags: python, machine-learning, mlops, kubernetes, bodywork
 
 ![bodywork_logo]({static}/images/machine-learning-engineering/bodywork/bodywork-cli.png)
 
-Solutions to ML problems are usually developed in Jupyter notebooks. We are then faced with an altogether different problem - how to engineer the notebook solution into your product and maintain its performance through time, after new data is generated.
-
-## What is this Tutorial Going to Teach Me?
-
-* How to develop a two-stage pipeline that trains a model and then creates a prediction service to exposes it via a REST API.
-* How to deploy the pipeline to [Kubernetes](https://kubernetes.io/) using [GitHub](https://github.com/) and [Bodywork](https://bodywork.readthedocs.io/en/latest/).
-* How to configure the pipeline to run on a schedule, so the model is periodically re-trained and re-deployed without the intervention of an ML engineer.
+Solutions to ML problems are usually first developed in Jupyter notebooks. We are then faced with an altogether different problem - how to engineer these notebook solutions into your products and systems and continue to maintain their performance through time, after new data is generated.
 
 **Table of Contents**
 
 [TOC]
+
+## What is this Tutorial Going to Teach Me?
+
+* How to re-engineer a ML solution from a Jupyter notebook into a production-ready Python modules.
+* How to develop a two-stage ML pipeline that trains a model and then creates a prediction service to exposes it via a REST API.
+* How to deploy the pipeline to [Kubernetes](https://kubernetes.io/) using [GitHub](https://github.com/) and [Bodywork](https://bodywork.readthedocs.io/en/latest/).
+* How to configure the pipeline to run on a schedule, so the model is periodically re-trained and re-deployed without the intervention of an ML engineer.
 
 ## Introduction
 
